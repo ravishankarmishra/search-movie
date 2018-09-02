@@ -1,0 +1,64 @@
+.home-container{
+    margin-top:60px;
+    padding: 25px;
+}
+.search-box{
+    padding:30px;
+    text-align: center;
+}
+.search-box > input{
+    width:65%;
+    padding: 0 20px;
+}
+.search-box > button{
+    width:35%;
+}
+.search-box > input,
+.search-box > button {
+    color: #29627e;
+    font-size: 25px;
+    height: 46px;
+    border: none;
+    border-radius: 5px;
+    font-family: raleway;
+}
+.movies{
+    height: 450px;;
+}
+.movie-titles{
+    text-align: center;
+}
+.movie-card{
+    width:25%;
+    display:inline-block;
+    border: .5px solid;
+    margin: 10px;
+    height: 270px;
+    vertical-align: middle;
+    padding: 10px;
+}
+.movie-deails{
+    width: 50%;
+    float: right;
+    text-align: left;
+    padding:10px 30px;
+    line-height: 1.5;
+}
+.filter{
+    text-align:center;
+    padding-top:20px;
+    padding-bottom:70px;
+    font-size: 25px;
+}
+.filters{
+    padding-right:15px;
+}
+.filters > select{
+    color: #29627e;
+    font-size: 25px;
+    height: 46px;
+    border: none;
+    border-radius: 5px;
+    font-family: raleway;
+    background: #fff
+}
