@@ -9,18 +9,15 @@
 .search-box > input{
     width:65%;
     padding: 0 20px;
-}
-.search-box > button{
-    width:35%;
-}
-.search-box > input,
-.search-box > button {
     color: #29627e;
     font-size: 25px;
     height: 46px;
     border: none;
     border-radius: 5px;
     font-family: raleway;
+}
+.search-box > button{
+    width:35%;
 }
 .movies{
     height: 450px;;
@@ -61,4 +58,34 @@
     border-radius: 5px;
     font-family: raleway;
     background: #fff
+}
+
+@media screen and (max-width: 768px){
+    .movie-card{
+        width:100%;
+        height: 150px;
+    }
+    .movie-deails{
+        width: 100%;
+        padding:0;
+    }
+    .movies{
+        padding-bottom: 65px;
+    }
+    .search-box{
+        padding:0;
+    }
+    .search-box > input{
+        width:90%;
+        font-size: 20px;
+    }
+    .filter{
+        font-size: 15px;
+    }
+    .filters{
+        padding-right:0;
+    }
+    .filters > select{
+        font-size: 20px;
+    }
 }

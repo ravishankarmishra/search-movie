@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
   moviesDetail:any;
   order:any;
   ascending:any;
-  
+  searchText:any;
 
   options = [
     { name: "English", value: 'English' },
