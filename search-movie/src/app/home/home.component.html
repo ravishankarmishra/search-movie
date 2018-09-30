@@ -5,24 +5,25 @@
       <input [(ngModel)]="searchText" placeholder="Search movies..." name="search"><br><br>
     </div>
     <div aria-label="filter" class="filter">
-      Filter By:
-      <span class="filters" aria-label="country-filters">
+      <span class="filters" aria-label="language-filters">
         Language
+      </span>
         <select [(ngModel)]="searchText" name="Language" placeholder="Language">
           <option *ngFor="let o of options">
             {{o.name}}
           </option>
         </select>
-      </span>
+      
 
       <span aria-label="country-filters" class="filters">
         Country:
+      </span>
         <select [(ngModel)]="searchText" name="Language" placeholder="Language">
           <option *ngFor="let c of countries">
             {{c.name}}
           </option>
         </select>
-      </span>
+      
     </div>
   </form>
   <div aria-label="movie-titles" class="movie-titles">
