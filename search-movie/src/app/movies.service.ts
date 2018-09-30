@@ -1,10 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-export interface Movies {
-  heroesUrl: string;
-  textfile: string;
-}
 
 @Injectable({
   providedIn: 'root'
