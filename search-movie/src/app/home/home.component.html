@@ -1,0 +1,53 @@
+<div class="home-container">
+
+  <form>
+    <div aria-label="search-box" class="search-box">
+      <input [(ngModel)]="searchText" placeholder="Search movies..." name="search"><br><br>
+    </div>
+    <div aria-label="filter" class="filter">
+      Filter By:
+      <span class="filters" aria-label="country-filters">
+        Language
+        <select [(ngModel)]="searchText" name="Language" placeholder="Language">
+          <option *ngFor="let o of options">
+            {{o.name}}
+          </option>
+        </select>
+      </span>
+
+      <span aria-label="country-filters" class="filters">
+        Country:
+        <select [(ngModel)]="searchText" name="Language" placeholder="Language">
+          <option *ngFor="let c of countries">
+            {{c.name}}
+          </option>
+        </select>
+      </span>
+    </div>
+  </form>
+  <div aria-label="movie-titles" class="movie-titles">
+    <div *ngFor="let movies of moviesDetail | filter : searchText">
+      <div class="movies">
+        <div class="movie-card">
+          <h1 class="limited-text">{{movies.movie_title}}</h1>
+        </div>
+        <div aria-label="movie-deails" class="movie-deails">
+          <strong>Directed By:</strong> {{movies.director_name}}<br>
+          <strong>Starring:</strong> {{movies.actor_1_name}}, {{movies.actor_2_name}}<br>
+          <strong>Language:</strong> {{movies.language}}<br>
+          <strong>Country:</strong> {{movies.country}}<br>
+          <strong>Rating:</strong> {{movies.content_rating}}<br>
+          <strong>Budget:</strong> {{movies.budget}}<br>
+          <strong>Year:</strong> {{movies.title_year}}<br>
+          <span class="only-desktop">
+          <strong>Plot:</strong> {{movies.plot_keywords}}<br>
+          <strong>Genres:</strong> {{movies.genres}}<br>
+          </span>
+          <strong>Know more:</strong><a href="movies.movie_imdb_link"> IMDB link</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
