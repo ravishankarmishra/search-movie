@@ -8,8 +8,8 @@
       <span class="filters" aria-label="language-filters">
         Language
       </span>
-        <select [(ngModel)]="searchText" name="Language" placeholder="Language">
-          <option *ngFor="let o of options">
+        <select [(ngModel)]="language" name="Language" placeholder="Language">
+          <option *ngFor="let o of options" [ngValue]="o.name">
             {{o.name}}
           </option>
         </select>
@@ -18,8 +18,8 @@
       <span aria-label="country-filters" class="filters">
         Country:
       </span>
-        <select [(ngModel)]="searchText" name="Language" placeholder="Language">
-          <option *ngFor="let c of countries">
+        <select [(ngModel)]="country" name="Language" placeholder="Language">
+          <option *ngFor="let c of countries" [ngValue]="c.name">
             {{c.name}}
           </option>
         </select>
@@ -27,7 +27,7 @@
     </div>
   </form>
   <div aria-label="movie-titles" class="movie-titles">
-    <div *ngFor="let movies of moviesDetail | filter : searchText">
+    <div *ngFor="let movies of moviesDetail | filter : searchText : language : country">
       <div class="movies">
         <div class="movie-card">
           <h1 class="limited-text">{{movies.movie_title}}</h1>
