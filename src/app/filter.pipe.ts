@@ -7,6 +7,7 @@ export class FilterPipe implements PipeTransform {
 
   transform(items: any[], searchText: string, language:string, country:string): any[] {
     if(!items) return [];
+    if(!searchText && !language && !country) return items.slice(90,100);
 
 
     if(searchText){

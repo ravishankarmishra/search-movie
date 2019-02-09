@@ -1,4 +1,18 @@
-<div class="home-container">
+<div class="home-container" [ngClass]="{'dark': darkTheme}">
+  <div class="change-view">
+    <div class="theme" (click)="updateTheme(true)">
+      Dark Theme
+    </div>
+    <div class="theme" (click)="updateTheme(false)">
+      Light Theme
+    </div>
+    <div class="view" (click)="updateView(true)">
+      Grid View
+    </div>
+    <div class="view" (click)="updateView(false)">
+      List View
+    </div>
+  </div>
 
   <form>
     <div aria-label="search-box" class="search-box">
@@ -9,8 +23,8 @@
         Language
       </span>
         <select [(ngModel)]="language" name="Language" placeholder="Language">
-          <option *ngFor="let o of options" [ngValue]="o.name">
-            {{o.name}}
+          <option *ngFor="let language of languages" [ngValue]="language">
+            {{language}}
           </option>
         </select>
       
@@ -19,14 +33,14 @@
         Country:
       </span>
         <select [(ngModel)]="country" name="Language" placeholder="Language">
-          <option *ngFor="let c of countries" [ngValue]="c.name">
-            {{c.name}}
+          <option *ngFor="let country of countries" [ngValue]="country">
+            {{country}}
           </option>
         </select>
       
     </div>
   </form>
-  <div aria-label="movie-titles" class="movie-titles">
+  <div *ngIf="!tableView" aria-label="movie-titles" class="movie-titles">
     <div *ngFor="let movies of moviesDetail | filter : searchText : language : country">
       <div class="movies">
         <div class="movie-card">
@@ -50,5 +64,34 @@
     </div>
 
   </div>
+
+  <div *ngIf="tableView" class="table-container">
+<table>
+  <tr>
+    <th>Movie</th>
+    <th>Directed By</th>
+    <th>Starring</th>
+    <th>Language</th>
+    <th>Country</th>
+    <th>Rating</th>
+    <th>Budget</th>
+    <th>Year</th>
+    <th>Plot</th>
+    <th>Genre</th>
+  </tr>
+  <tr [ngClass]="{'dark-row': darkTheme}" *ngFor="let movies of moviesDetail | filter : searchText : language : country">
+    <td>{{movies?.movie_title}}</td>
+    <td>{{movies?.director_name}}</td>
+    <td>{{movies?.actor_1_name}}, {{movies.actor_2_name}}}}</td>
+    <td>{{movies?.language}}</td>
+    <td>{{movies?.country}}</td>
+    <td>{{movies?.content_rating}}</td>
+    <td>{{movies?.budget}}</td>
+    <td>{{movies?.title_year}}</td>
+    <td>{{movies?.plot_keywords}}</td>
+    <td>{{movies?.genres}}</td>
+  </tr>
+</table>
+</div>
 
 </div>

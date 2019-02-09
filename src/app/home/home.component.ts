@@ -15,50 +15,48 @@ export interface Skills {
 })
 export class HomeComponent implements OnInit {
 
-
   moviesDetail:any;
   order:any;
   ascending:any;
   searchText:any;
-
-  options = [
-    { name: "English", value: 'English' },
-    { name: "Japanese", value: 'Japanese' },
-    { name: "French", value: 'French' },
-    { name: "Mandarin", value: 'Mandarin' },
-    { name: "Aboriginal", value: 'Aboriginal' },
-    { name: "Spanish", value: 'Spanish' },
-    { name: "French", value: 'French' }
-  ]
-
-  countries = [
-    { name: "USA", value: 'USA' },
-    { name: "UK", value: 'UK' },
-    { name: "New Zealand", value: 'New Zealand' },
-    { name: "Canada", value: 'Canada' },
-    { name: "Australia", value: 'Australia' },
-    { name: "Belgium", value: 'Belgium' },
-    { name: "Germany", value: 'Germany' },
-    { name: "China", value: 'China' },
-    { name: "France", value: 'France' },
-    { name: "New Line", value: 'New Line' },
-    { name: "Japan", value: 'Japan' }
-  ]
+  language: string;
+  country: string;
+  countries: string[];
+  languages: string[];
+  page: number;
+  pages: number[];
+  tableView: boolean=true;
+  darkTheme: boolean=true;
 
   constructor(private moviesService: MoviesService) {
+    this.pages=[];
    }
 
   ngOnInit() {
     this.getData();
   }
 
-
   getData() {
     this.moviesService.getConfig()
       .subscribe((data) => {
         this.moviesDetail = data;
+        const language = this.moviesDetail.map(data => data.language);
+        this.languages = language.filter((x, i, a) => x && a.indexOf(x) === i);
+        const country = this.moviesDetail.map(data => data.country);
+        this.countries = country.filter((x, i, a) => x && a.indexOf(x) === i);
+        this.page = Math.ceil(this.moviesDetail.length/10);
+        console.log("pages"+this.moviesDetail.length)
+        for(let i=0; i<this.page; i++){
+          this.pages.push(i);
+        }
       });
   }
 
+  updateView(value){
+    this.tableView=value;
+  }
+  updateTheme(value){
+    this.darkTheme=value;
+  }
 
 }

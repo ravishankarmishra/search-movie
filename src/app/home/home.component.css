@@ -1,10 +1,38 @@
 .home-container{
-    margin-top:60px;
+    margin-top:55px;
     padding: 25px;
 }
 .search-box{
     padding:30px;
     text-align: center;
+}
+.change-view{
+    height: 25px;
+}
+.dark{
+    background: #2d4e66;
+    font-family: Raleway;
+    color: #dddddd;
+}
+.theme{
+    display: inline;
+    float: left;
+    background: #1fa089ba;
+    margin-left: 5px;
+    padding: 10px;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+}
+.view{
+    display: inline;
+    float: right;
+    background: #1fa089ba;
+    margin-left: 5px;
+    padding: 10px;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
 }
 .search-box > input{
     width:65%;
@@ -60,6 +88,26 @@ select{
     background: #fff
 }
 
+.table-container{
+    padding: 50px;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+.dark-row{
+    background-color: #2d4e66 !important;
+}
 @media screen and (max-width: 768px){
     .movie-card{
         width:90%;
@@ -106,4 +154,14 @@ select{
   overflow: hidden;
   text-overflow: ellipsis;
   display:inline-block;
+}
+.pages{
+    width: 50%;
+    text-align: center;
+}
+.boxes{
+    display: inline;
+    border: 1px solid #1fa089;
+    padding: 6px;
+    margin: 2px;
 }
