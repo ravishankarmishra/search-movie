@@ -6,7 +6,7 @@
     height: 40px;
     position: fixed;
     width: 100%;
-    background: linear-gradient(to right, #60c1b4,#1a2248);
+    background: linear-gradient(to right, #ea2b51,#331a48);
     z-index: 2;
     top: 0;
     left: 0;
@@ -93,7 +93,7 @@
   }
   
   .menu-header {
-    background: linear-gradient(to right, #60c1b4,#1a2248);
+    background: linear-gradient(to right, #ea2b51,#331a48);
     display: grid;
     grid-template-rows: 1fr 4fr;
     grid-template-columns: 1fr 4fr;
@@ -166,7 +166,7 @@
     height: 68px;
     padding: 4%;
     margin-left: 20px;
-    background: #1fa089ba;
+    background: #c51467;
     color: #fff;
     font-size: 20px;
     margin-top: 15px;

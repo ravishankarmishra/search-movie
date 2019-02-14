@@ -40,8 +40,15 @@
       
     </div>
   </form>
+
+  <mat-paginator [length]="length"
+              [pageSize]="pageSize"
+              [pageSizeOptions]="[10]"
+              (page)="changePage($event)">
+</mat-paginator>
+
   <div *ngIf="!tableView" aria-label="movie-titles" class="movie-titles">
-    <div *ngFor="let movies of moviesDetail | filter : searchText : language : country">
+    <div *ngFor="let movies of moviesDetail | filter : searchText : language : country : director : actor : genre : budget : year : from : to">
       <div class="movies">
         <div class="movie-card">
           <h1 class="limited-text">{{movies.movie_title}}</h1>
@@ -65,7 +72,7 @@
 
   </div>
 
-  <div *ngIf="tableView" class="table-container">
+  <div *ngIf="tableView" class="table-container" (window:resize)="onResize($event)">
 <table>
   <tr>
     <th>Movie</th>
@@ -73,25 +80,67 @@
     <th>Starring</th>
     <th>Language</th>
     <th>Country</th>
-    <th>Rating</th>
+    <th>Genre</th>
     <th>Budget</th>
     <th>Year</th>
-    <th>Plot</th>
-    <th>Genre</th>
   </tr>
-  <tr [ngClass]="{'dark-row': darkTheme}" *ngFor="let movies of moviesDetail | filter : searchText : language : country">
-    <td>{{movies?.movie_title}}</td>
-    <td>{{movies?.director_name}}</td>
-    <td>{{movies?.actor_1_name}}, {{movies.actor_2_name}}}}</td>
-    <td>{{movies?.language}}</td>
-    <td>{{movies?.country}}</td>
-    <td>{{movies?.content_rating}}</td>
-    <td>{{movies?.budget}}</td>
-    <td>{{movies?.title_year}}</td>
-    <td>{{movies?.plot_keywords}}</td>
-    <td>{{movies?.genres}}</td>
+  <tr>
+    <th>
+      <div aria-label="search-box" class="search-box-table">
+        <input [(ngModel)]="searchText" placeholder="Enter movies" name="search">
+      </div>
+    </th>
+    <th>
+      <div aria-label="search-box" class="search-box-table">
+        <input [(ngModel)]="director" placeholder="Enter director" name="search">
+      </div>
+    </th>
+    <th>
+      <div aria-label="search-box" class="search-box-table">
+        <input [(ngModel)]="actor" placeholder="Enter actor" name="search">
+      </div>
+    </th>
+    <th>
+      <select [(ngModel)]="language" name="language" class="search-box-table" placeholder="Language">
+        <option *ngFor="let language of languages" [ngValue]="language">
+          {{language}}
+        </option>
+      </select>
+    </th>
+    <th>
+      <select [(ngModel)]="country" name="country" placeholder="Language">
+      <option *ngFor="let country of countries" [ngValue]="country">
+        {{country}}
+      </option>
+      </select>
+    </th>
+    <th>
+    <div aria-label="search-box" class="search-box-table">
+      <input [(ngModel)]="genre" placeholder="Enter genre" name="search">
+    </div>
+    </th>
+    <th>
+      <div aria-label="search-box" class="search-box-table">
+        <input [(ngModel)]="budget" placeholder="Enter budget" name="search">
+      </div>
+    </th>
+    <th>
+      <div aria-label="search-box" class="search-box-table">
+        <input [(ngModel)]="year" placeholder="Enter year" name="search">
+      </div>
+    </th>
+  </tr>
+  <tr [ngClass]="{'dark-row': darkTheme}" *ngFor="let movies of moviesDetail | filter : searchText : language : country : director : actor : genre : budget : year : from : to">
+    <td><span class="limited-width">{{movies?.movie_title}}</span></td>
+    <td *ngIf="movies.director_name; else noData">{{movies?.director_name}}</td>
+    <td *ngIf="movies.actor_1_name; else noData">{{movies?.actor_1_name}}, <br>{{movies.actor_2_name}}</td>
+    <td *ngIf="movies.language; else noData">{{movies?.language}}</td>
+    <td *ngIf="movies.country; else noData">{{movies?.country}}</td>
+    <td *ngIf="movies.genres; else noData"><span class="limited-width">{{movies?.genres}}</span></td>
+    <td *ngIf="movies.budget; else noData">{{movies?.budget}}</td>
+    <td *ngIf="movies.title_year; else noData">{{movies?.title_year}}</td>
+    <ng-template #noData><td>Not Available</td></ng-template>
   </tr>
 </table>
 </div>
-
 </div>

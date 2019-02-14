@@ -6,18 +6,21 @@
     padding:30px;
     text-align: center;
 }
+.search-box-table{
+    text-align: center;
+}
 .change-view{
     height: 25px;
 }
 .dark{
-    background: #2d4e66;
+    background: #331a48;
     font-family: Raleway;
-    color: #dddddd;
+    color: #dddddd !important;
 }
 .theme{
     display: inline;
     float: left;
-    background: #1fa089ba;
+    background: #c51467;
     margin-left: 5px;
     padding: 10px;
     color: #fff;
@@ -27,7 +30,7 @@
 .view{
     display: inline;
     float: right;
-    background: #1fa089ba;
+    background: #c51467;
     margin-left: 5px;
     padding: 10px;
     color: #fff;
@@ -37,11 +40,21 @@
 .search-box > input{
     width:65%;
     padding: 0 20px;
-    color: #29627e;
+    color: #331a48;
     font-size: 25px;
     height: 46px;
     border: none;
     border-radius: 5px;
+    font-family: raleway;
+}
+.search-box-table > input{
+    width: 70%;
+    padding: 0 10px;
+    color: #331a48;
+    font-size: 15px;
+    height: 42px;
+    border: none;
+    border-radius: 1px;
     font-family: raleway;
 }
 .search-box > button{
@@ -79,17 +92,17 @@
     padding-right:15px;
 }
 select{
-    color: #29627e;
-    font-size: 25px;
-    height: 46px;
+    color: #331a48;
+    font-size: 20px;
+    height: 42px;
     border: none;
-    border-radius: 5px;
+    border-radius: 1px;
     font-family: raleway;
-    background: #fff
+    background: #fff;
 }
 
 .table-container{
-    padding: 50px;
+    padding: 50px 0;
 }
 table {
     border-collapse: collapse;
@@ -97,16 +110,14 @@ table {
 }
 
 td, th {
-    border: 1px solid #dddddd;
+    border: 1px solid #9b244d;
     text-align: left;
-    padding: 8px;
+    padding: 5px;
 }
 
-tr:nth-child(even) {
-    background-color: #dddddd;
-}
+
 .dark-row{
-    background-color: #2d4e66 !important;
+    background-color: #331a48 !important;
 }
 @media screen and (max-width: 768px){
     .movie-card{
@@ -126,6 +137,7 @@ tr:nth-child(even) {
     .search-box > input{
         width:80%;
         font-size: 20px;
+        margin-top: 7px;
     }
     .filter{
         font-size: 15px;
@@ -143,8 +155,13 @@ tr:nth-child(even) {
 }
 @media screen and (max-width: 374px){
     select{
-        font-size: 8px;
+        font-size: 7px;
         height: 24px;
+    }
+}
+@media screen and (max-width: 1023px){
+    .view{
+        display:none;
     }
 }
 
@@ -155,6 +172,13 @@ tr:nth-child(even) {
   text-overflow: ellipsis;
   display:inline-block;
 }
+.limited-width{
+    width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display:inline-block;
+  }
 .pages{
     width: 50%;
     text-align: center;
@@ -165,3 +189,20 @@ tr:nth-child(even) {
     padding: 6px;
     margin: 2px;
 }
+
+.pagination {
+    display: inline-block;
+    text-align: center;
+  }
+  
+  .pagination a {
+    color: #fff;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+  }
+  a{
+    text-decoration: none;
+    color: #ddd;
+    cursor: pointer;
+  }
